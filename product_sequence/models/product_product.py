@@ -4,7 +4,7 @@
 #   (http://www.forgeflow.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
@@ -64,5 +64,5 @@ class ProductProduct(models.Model):
         if default is None:
             default = {}
         if self.default_code and "default_code" not in default:
-            default.update({"default_code": self.default_code + _("-copy")})
+            default.update({"default_code": self.default_code + self.env._("-copy")})
         return super().copy(default)
